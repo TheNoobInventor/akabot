@@ -1,6 +1,6 @@
 # Akabot
 
-A 6 degree of freedom (DOF) robot arm, ***Akabot***, is controlled using the ROS2 robotic manipulation platform, MoveIt 2. The ROS2 Humble version of MoveIt 2 is used, which runs in a Docker container on an Nvidia Jetson Nano board. The robot arm is equipped with an Intel Realsense D415 depth camera used to detect ArUco markers on objects to be picked up.
+Akabot, a 6 degree of freedom (DOF) robot arm, is controlled using the ROS2 robotic manipulation platform, MoveIt 2. The ROS2 Humble version of MoveIt 2 is used, which runs in a Docker container on an Nvidia Jetson Nano board. The robot arm is equipped with an Intel Realsense D415 depth camera used to detect ArUco markers on objects to be picked up.
 
 <p align="center">
   <img title='Front view upright' src=docs/images/front_view_upright.jpg width="400">
@@ -18,7 +18,7 @@ A 6 degree of freedom (DOF) robot arm, ***Akabot***, is controlled using the ROS
 ## Package Overview
 - [`akabot_bringup`](./akabot_bringup/) : Contains launch files to bring up the depth camera and the real akabot.
 - [`akabot_controllers`](./akabot_controllers/) : Contains robot arm driver and hardware interfaces for `ros2_control`.
-- [`akabot_description`](./akabot_description/) : Contains the URDF description files for akabot, sensors and ros2 control.
+- [`akabot_description`](./akabot_description/) : Contains the URDF description files for akabot, sensors and `ros2 control`.
 - [`akabot_gazebo`](./akabot_gazebo/) : Contains configuration, launch and world files needed to simulate the akabot in Gazebo.
 - [`akabot_manipulation`](./akabot_manipulation/) : Contains algorithms for manipulating objects in the environment.
 - [`akabot_moveit_config`](./akabot_moveit_config/) : Contains configuration files for MoveIt2.
