@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  ros2:
+    build: ./
+    volumes:
+      - "./:/akabot_ws"
+    stdin_open: true
+    tty: true
