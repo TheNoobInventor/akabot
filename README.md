@@ -31,11 +31,11 @@ The following components were used in this project:
 
 | | Part |
 | --| --|
-|1| [Robot arm kit](https://www.aliexpress.com/item/32839884668.html)| 
+|1| [Robot arm kit](https://s.click.aliexpress.com/e/_DlScAGX)| 
 |2| Nvidia Jetson Nano 4GB|
 |3| Nvidia Jetson Nano case (optional)|
 |4| SanDisk 64 GB SD Card|
-|5| [PCA9685 16 channel PWM Servo Driver](https://www.aliexpress.com/item/32466332558.html)|
+|5| [PCA9685 16 channel PWM Servo Driver](https://s.click.aliexpress.com/e/_DlScAGX)|
 |5| 5V 5A (minimum) regulated power supply|
 |6| Toggle switch|
 
@@ -172,3 +172,9 @@ Four M3 10mm brass standoffs were screwed into the ones provided in the robot ar
 Finally, the D415 depth camera is plugged into one of the USB ports of the Jetson Nano. 
 
 ## Installation
+
+TODO:
+`docker compose up -d` start a container in detached mode
+
+Run container: 
+`docker start -ai akabot_ws-ros2-1 `
