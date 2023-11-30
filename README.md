@@ -174,7 +174,10 @@ Finally, the D415 depth camera is plugged into one of the USB ports of the Jetso
 ## Installation
 
 TODO:
-`docker compose up -d` start a container in detached mode
+- [ ] Upload docker image to DockerHub
 
-Run container: 
-`docker start -ai akabot_ws-ros2-1 `
+Run container based on image built from Dockerfile, specifying user_name (the default `ros2` will be used instead, enabling shared connectivity and memory with the
+host (Nvidia Jetson Nano) and a name for the container:
+`docker run -it --user user_name --network host --ipc host --name container_name image_name`
+
+Detached mode?

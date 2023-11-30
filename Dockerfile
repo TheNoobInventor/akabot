@@ -77,8 +77,5 @@ RUN apt-get update && apt-get install -y git-core bash-completion \
     && echo "if [ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash ]; then source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash; fi" >> /home/$USERNAME/.bashrc \
     && rm -rf /var/lib/apt/lists/*
 
-# Create working directory
-WORKDIR /akabot_ws
-
-# Copy repository files into the working directory
-COPY . /akabot_ws
+# Use new user name
+USER $USERNAME
