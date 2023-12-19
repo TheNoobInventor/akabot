@@ -1,0 +1,12 @@
+services:
+  akabot-container:
+    build: ./
+    image: 'thenoobinventor/akabot'
+    volumes:
+      - "/home/akabot/akabot_ws:/home/akabot_ws"
+    devices: 
+      - "/dev/i2c-1:/dev/i2c-1" 
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+    ipc: host

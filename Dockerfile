@@ -1,6 +1,6 @@
 # Adapted from  Allison Thackston (https://github.com/athackst/dockerfiles/blob/main/ros2/humble.Dockerfile)
 
-FROM ubuntu:22.04
+FROM ubuntu:jammy-20231211.1
 
 # Disable terminal interactivity
 ENV DEBIAN_FRONTEND=noninteractive
@@ -77,5 +77,23 @@ RUN apt-get update && apt-get install -y git-core bash-completion \
     && echo "if [ -f /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash ]; then source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash; fi" >> /home/$USERNAME/.bashrc \
     && rm -rf /var/lib/apt/lists/*
 
+# Install i2c libraries
+RUN apt-get update && apt-get install i2c-tools libi2c-dev libi2c0 -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install smbus package (required by PCA9685 servo driver)
+RUN apt-get update && apt-get install python3-pip -y \
+    && pip3 install smbus \
+    && rm -rf /var/lib/apt/lists/*
+
+# Add the user to i2c group
+RUN usermod -aG i2c $USERNAME
+
+# Copy over some files
+
+
 # Use new user name
 USER $USERNAME
+
+# Create a bound mount for the repo in case something happens, we won't lose our progress. 
+# Plus we might tweak the dockerfile when we want to add support for cuda, fashie for now. But refer to althacks dockerfiles

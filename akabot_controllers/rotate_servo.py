@@ -4,7 +4,6 @@ from akabot_controllers.PCA9685 import PCA9685
 
 from time import sleep
 import argparse
-import Jetson.GPIO as GPIO
 
 # Setup arguments
 parser = argparse.ArgumentParser()
