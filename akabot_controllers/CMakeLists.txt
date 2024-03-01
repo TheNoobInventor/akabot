@@ -14,7 +14,7 @@ ament_python_install_package(${PROJECT_NAME})
 
 # Install Python executables
 install(PROGRAMS
-  scripts/rotate_servo.py
+  rotate_servo.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="akabot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="hand">
+        <link name="claw_base"/>
+        <link name="left_claw"/>
+        <link name="right_claw"/>
+    </group>
+    <group name="akabot_arm">
+        <joint name="virtual_joint"/>
+        <joint name="base_plate_joint"/>
+        <joint name="camera_joint"/>
+        <joint name="camera_optical_joint"/>
+        <joint name="top_plate_joint"/>
+        <joint name="lower_arm_joint"/>
+        <joint name="upper_arm_joint"/>
+        <joint name="wrist_joint"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="open" group="hand">
+        <joint name="claw_base_joint" value="-3.17"/>
+        <joint name="right_claw_joint" value="-0.5"/>
+    </group_state>
+    <group_state name="close" group="hand">
+        <joint name="claw_base_joint" value="0"/>
+        <joint name="right_claw_joint" value="0"/>
+    </group_state>
+    <group_state name="ready" group="akabot_arm">
+        <joint name="lower_arm_joint" value="2.0685"/>
+        <joint name="top_plate_joint" value="3.12"/>
+        <joint name="upper_arm_joint" value="-0.8547"/>
+        <joint name="wrist_joint" value="-1.3619"/>
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="hand" parent_link="wrist" group="hand"/>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_link"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_plate" link2="camera_link" reason="Adjacent"/>
+    <disable_collisions link1="base_plate" link2="lower_arm" reason="Never"/>
+    <disable_collisions link1="base_plate" link2="top_plate" reason="Adjacent"/>
+    <disable_collisions link1="camera_link" link2="lower_arm" reason="Never"/>
+    <disable_collisions link1="camera_link" link2="top_plate" reason="Never"/>
+    <disable_collisions link1="camera_link" link2="upper_arm" reason="Never"/>
+    <disable_collisions link1="camera_link" link2="wrist" reason="Never"/>
+    <disable_collisions link1="claw_base" link2="left_claw" reason="Adjacent"/>
+    <disable_collisions link1="claw_base" link2="right_claw" reason="Adjacent"/>
+    <disable_collisions link1="claw_base" link2="upper_arm" reason="Never"/>
+    <disable_collisions link1="claw_base" link2="wrist" reason="Adjacent"/>
+    <disable_collisions link1="left_claw" link2="lower_arm" reason="Never"/>
+    <disable_collisions link1="left_claw" link2="right_claw" reason="Default"/>
+    <disable_collisions link1="left_claw" link2="upper_arm" reason="Never"/>
+    <disable_collisions link1="left_claw" link2="wrist" reason="Never"/>
+    <disable_collisions link1="lower_arm" link2="right_claw" reason="Never"/>
+    <disable_collisions link1="lower_arm" link2="top_plate" reason="Adjacent"/>
+    <disable_collisions link1="lower_arm" link2="upper_arm" reason="Adjacent"/>
+    <disable_collisions link1="lower_arm" link2="wrist" reason="Never"/>
+    <disable_collisions link1="right_claw" link2="upper_arm" reason="Never"/>
+    <disable_collisions link1="right_claw" link2="wrist" reason="Never"/>
+    <disable_collisions link1="upper_arm" link2="wrist" reason="Adjacent"/>
+</robot>

@@ -8,6 +8,12 @@
           <mesh filename="package://akabot_description/meshes/d415.dae" scale="10 10 10"/>
         </geometry>
     </visual>
+ 	  <collision>
+      <origin xyz="0.4 -0.015 0.135" rpy="${-pi/2} ${pi} ${-pi/2}"/>
+        <geometry>
+          <mesh filename="package://akabot_description/meshes/d415.dae" scale="10 10 10"/>
+        </geometry>
+    </collision>
   </link>
 
   <joint name="camera_joint" type="fixed">
