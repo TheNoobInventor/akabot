@@ -10,36 +10,36 @@ default_acceleration_scaling_factor: 0.1
 joint_limits:
   claw_base_joint:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 1.0
     has_acceleration_limits: false
     max_acceleration: 0
   left_claw_joint:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 1.0
     has_acceleration_limits: false
     max_acceleration: 0
   lower_arm_joint:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 1.0
     has_acceleration_limits: false
     max_acceleration: 0
   right_claw_joint:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 1.0
     has_acceleration_limits: false
     max_acceleration: 0
   top_plate_joint:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 1.0
     has_acceleration_limits: false
     max_acceleration: 0
   upper_arm_joint:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 1.0
     has_acceleration_limits: false
     max_acceleration: 0
   wrist_joint:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 1.0
     has_acceleration_limits: false
     max_acceleration: 0

@@ -31,3 +31,4 @@ hand_controller:
     joints:
       - claw_base_joint
       - right_claw_joint
+      - left_claw_joint

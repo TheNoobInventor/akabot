@@ -23,5 +23,6 @@ moveit_simple_controller_manager:
     joints:
       - claw_base_joint
       - right_claw_joint
+      - left_claw_joint
     action_ns: gripper_cmd
     default: true
