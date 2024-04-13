@@ -8,9 +8,8 @@ Akabot, a 6 degree of freedom (DOF) robot arm, is controlled using the ROS2 robo
 
 <br/>
 
-<p align="center">
-  <img title='Rviz view 1' src=docs/images/rviz_1.png width="400">
-  <img title='Rviz view 2' src=docs/images/rviz_2.png width="400">
+<p align='center'>
+    <img src=docs/images/rviz_demo.gif width="800">
 </p>
 
 ***(Work in Progress)***
@@ -182,3 +181,12 @@ host (Nvidia Jetson Nano) and a name for the container:
 `docker run -it --user user_name --network host --ipc host --name container_name image_name`
 
 Detached mode?
+
+## Rviz
+
+<p align="center">
+  <img title='Rviz view 1' src=docs/images/rviz_1.png width="400">
+  <img title='Rviz view 2' src=docs/images/rviz_2.png width="400">
+</p>
+
+
