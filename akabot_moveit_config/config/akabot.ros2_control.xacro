@@ -8,13 +8,6 @@
                 <!-- By default, set up controllers for simulation. This won't work on real hardware -->
                 <plugin>mock_components/GenericSystem</plugin>
             </hardware>
-            <joint name="claw_base_joint">
-                <command_interface name="position"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['claw_base_joint']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-            </joint>
             <joint name="right_claw_joint">
                 <command_interface name="position"/>
                 <state_interface name="position">
@@ -47,6 +40,13 @@
                 <command_interface name="position"/>
                 <state_interface name="position">
                   <param name="initial_value">${initial_positions['wrist_joint']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="claw_base_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['claw_base_joint']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>

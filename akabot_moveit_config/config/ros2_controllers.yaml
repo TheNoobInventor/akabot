@@ -21,6 +21,7 @@ akabot_arm_controller:
       - lower_arm_joint
       - upper_arm_joint
       - wrist_joint
+      - claw_base_joint
     command_interfaces:
       - position
     state_interfaces:
@@ -28,7 +29,4 @@ akabot_arm_controller:
       - velocity
 hand_controller:
   ros__parameters:
-    joints:
-      - claw_base_joint
-      - right_claw_joint
-      - left_claw_joint
+    joint: right_claw_joint

@@ -7,7 +7,7 @@ moveit_setup_assistant_config:
   package_settings:
     author_name: Chinedu Amadi
     author_email: noobinventor@tutamail.com
-    generated_timestamp: 1709326276
+    generated_timestamp: 1713012709
   control_xacro:
     command:
       - position
