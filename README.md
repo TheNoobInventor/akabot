@@ -172,15 +172,35 @@ Finally, the D415 depth camera is plugged into one of the USB ports of the Jetso
 
 ## Installation
 
+
+## Docker Setup
+
 TODO:
 - [ ] Upload docker image to DockerHub
 
-Run container based on image built from Dockerfile, specifying user_name (the default `ros2` will be used instead), enabling shared connectivity and memory with the
-host (Nvidia Jetson Nano) and a name for the container:
+In the Nvidia Jetson Nano, navigate to the source folder in the ROS2 workspace, `akabot_ws` in this case: 
 
-`docker run -it --user user_name --network host --ipc host --name container_name image_name`
+```
+cd akabot_ws/src
+```
 
-Detached mode?
+Then run the following command to spin up a Docker container in detached mode:
+
+```
+docker compose up -d
+```
+
+Run this command to attach to the container:
+
+```
+docker attach src-akabot-container-1
+```
+
+Inside the container, navigate to the source directory to start development:
+
+```
+cd /home/akabot_ws/src
+```
 
 ## Rviz
 

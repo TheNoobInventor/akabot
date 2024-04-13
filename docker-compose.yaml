@@ -3,7 +3,7 @@ services:
     build: ./
     image: 'thenoobinventor/akabot'
     volumes:
-      - "/home/akabot/akabot_ws:/home/akabot_ws"
+      - "/home/akabot/akabot_ws/src:/home/akabot_ws/src"
     devices: 
       - "/dev/i2c-1:/dev/i2c-1" 
     stdin_open: true
