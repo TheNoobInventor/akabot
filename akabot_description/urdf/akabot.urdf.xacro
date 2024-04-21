@@ -1,10 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="akabot" xmlns:xacro="http://ros.org/wiki/xacro">
 
-    <xacro:arg name="sim_mode" default="false">
-
     <xacro:include filename="akabot_core.xacro"/>
     <xacro:include filename="depth_camera.xacro"/>
-    <xacro:include filename="ros2_control.xacro"/>
 
 </robot>

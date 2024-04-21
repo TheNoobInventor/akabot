@@ -91,7 +91,7 @@ def generate_launch_description():
 
     # ros2_control using FakeSystem as hardware
     ros2_controllers_path = os.path.join(
-        get_package_share_directory("akabot_moveit_config"),
+        get_package_share_directory("akabot_bringup"),
         "config",
         "ros2_controllers.yaml",
     )

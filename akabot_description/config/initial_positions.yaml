@@ -1,4 +1,4 @@
-# Default initial positions for akabot's ros2_control fake system
+# Default initial positions for akabot's ros2_control system
 
 initial_positions:
   claw_base_joint: 0.0000

@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="akabot">
 
-    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+    <!-- Import akabot urdf and ros2_control xacro files -->
+    <xacro:include filename="$(find akabot_description)/urdf/akabot.urdf.xacro"/>
+    <xacro:include filename="$(find akabot_description)/urdf/akabot.ros2_control.xacro"/>
 
-    <!-- Import akabot urdf file -->
-    <xacro:include filename="$(find akabot_description)/urdf/akabot.urdf.xacro" />
-
-    <!-- Import control_xacro -->
-    <xacro:include filename="$(find akabot_description)/urdf/akabot.ros2_control.xacro" />
-
-
-    <xacro:akabot_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+    <!-- ros2_control macro -->
+    <xacro:akabot_ros2_control name="FakeSystem" plugin_name="mock_components/GenericSystem"/>
 
 </robot>
