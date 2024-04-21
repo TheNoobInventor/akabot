@@ -15,13 +15,12 @@ Akabot, a 6 degree of freedom (DOF) robot arm, is controlled using the ROS2 robo
 ***(Work in Progress)***
 
 ## Package Overview
-- [`akabot_bringup`](./akabot_bringup/) : Contains launch files to bring up the depth camera and the real akabot.
-- [`akabot_controllers`](./akabot_controllers/) : Contains robot arm driver and hardware interfaces for `ros2_control`.
-- [`akabot_description`](./akabot_description/) : Contains the URDF description files for akabot, sensors and `ros2 control`.
-- [`akabot_gazebo`](./akabot_gazebo/) : Contains configuration, launch and world files needed to simulate the akabot in Gazebo.
-- [`akabot_manipulation`](./akabot_manipulation/) : Contains algorithms for manipulating objects in the environment.
+- [`akabot_aruco`](./akabot_aruco/) : Contains configuration, launch and node files to use ArUco markers with akabot.
+- [`akabot_bringup`](./akabot_bringup/) : Contains `ros2_control` hardware component for PCA985 servo driver, launch files to bring up the depth camera and the real akabot.
+- [`akabot_description`](./akabot_description/) : Contains the URDF description files for akabot, sensors and `ros2_control`.
+- [`akabot_gazebo`](./akabot_gazebo/) : Contains configuration, launch and world files needed to simulate akabot in Gazebo Harmonic.
+- [`akabot_gazebo_classic`](./akabot_gazebo/) : Contains configuration, launch and world files needed to simulate akabot in Gazebo Classic.
 - [`akabot_moveit_config`](./akabot_moveit_config/) : Contains configuration files for MoveIt2.
-- [`akabot_planner`](./akabot_planner/) : Contains configuration files for planning the robot arm motion.
 - [`akabot_teleop`](./akabot_teleop/) : Contains configuration and launch files used to enable joystick control of the akabot in simulation and physically.
 
 ## Hardware
@@ -75,7 +74,7 @@ The servo motors are plugged into channels 1 to 6 on the PWM servo motor driver 
 The following image shows the components connected for servo calibration - the first two servo motors are YF6125MG type servo motors, while the remaining 4 are M996R type servo motors.
 
 <p align='center'>
-  <img title='Calibratin wiring' src=docs/images/calibration_wiring.jpg width="600">
+  <img title='Calibration wiring' src=docs/images/calibration_wiring.jpg width="600">
 </p>
 
 Waveshare's [PCA9685 python library](https://www.waveshare.com/wiki/Servo_Driver_HAT#Downlaod_the_example_program_.26_unzip_to_the_specified_directory) is used in calibrating the servos. The `rotate_servo.py` script, located in `akabot_controllers/scripts`, is used to rotate each servo from 0 degrees to 180 degrees, with a 1 second pause when the servo is supposedly at 90 degrees. 

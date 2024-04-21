@@ -22,14 +22,14 @@ def generate_launch_description():
     moveit_config = (
         MoveItConfigsBuilder("akabot")
         .robot_description(
-            file_path="config/akabot.urdf.xacro",
+            file_path="urdf/fake.akabot.urdf.xacro",
             mappings={
                 "ros2_control_hardware_type": LaunchConfiguration(
                     "ros2_control_hardware_type"
                 )
             },
         )
-        .robot_description_semantic(file_path="config/akabot.srdf")
+        .robot_description_semantic(file_path="srdf/akabot.srdf")
         .robot_description_kinematics(file_path="config/kinematics.yaml")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
         .planning_scene_monitor(
@@ -53,7 +53,7 @@ def generate_launch_description():
     # RViz
     rviz_base = os.path.join(
         get_package_share_directory("akabot_moveit_config"),
-        "config",
+        "rviz",
     )
     rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
 
