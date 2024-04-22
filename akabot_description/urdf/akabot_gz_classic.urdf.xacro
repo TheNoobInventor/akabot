@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="akabot">
+
+    <!-- Import akabot urdf and ros2_control xacro files -->
+    <xacro:include filename="$(find akabot_description)/urdf/akabot.urdf.xacro"/>
+    <xacro:include filename="$(find akabot_description)/urdf/akabot.ros2_control.xacro"/>
+
+    <!-- ros2_control macro -->
+    <xacro:akabot_ros2_control name="GazeboSystem" plugin_name="gazebo_ros2_control/GazeboSystem"/>
+
+    <gazebo>
+      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+        <parameters>$(find akabot_bringup)/config/ros2_controllers.yaml</parameters>
+      </plugin>
+    </gazebo>
+</robot>
+

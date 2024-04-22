@@ -1,4 +1,7 @@
+# Demo launch file
+
 import os
+import yaml
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
@@ -10,6 +13,14 @@ from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 
 
+#
+def load_yaml(package_name, file_name):
+    package_path = get_package_share_directory(package_name)
+    absolute_file_path = os.path.join(package_path, file_name)
+    with open(absolute_file_path, "r", encoding="utf-8") as file:
+        return yaml.safe_load(file)
+
+
 def generate_launch_description():
 
     # Command-line arguments
@@ -19,6 +30,7 @@ def generate_launch_description():
         description="ROS2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac]",
     )
 
+    #
     moveit_config = (
         MoveItConfigsBuilder("akabot")
         .robot_description(
@@ -32,21 +44,32 @@ def generate_launch_description():
         .robot_description_semantic(file_path="srdf/akabot.srdf")
         .robot_description_kinematics(file_path="config/kinematics.yaml")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
+        .joint_limits(file_path="config/joint_limits.yaml")
         .planning_scene_monitor(
             publish_robot_description=True, publish_robot_description_semantic=True
         )
         .planning_pipelines(
-            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"]
+            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"],
+            # default_planning_pipeline="ompl",
         )
         .to_moveit_configs()
     )
+
+    #
+    robot_description_planning = {
+        "robot_description_planning": load_yaml(
+            "akabot_moveit_config",
+            os.path.join("config", "joint_limits.yaml"),
+        )
+    }
 
     # Start the actual move_group node/action server
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()],
+        # parameters=[moveit_config.to_dict()],
+        parameters=[moveit_config.to_dict(), robot_description_planning],
         arguments=["--ros-args", "--log-level", "info"],
     )
 
@@ -57,6 +80,7 @@ def generate_launch_description():
     )
     rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
 
+    #
     rviz_node = Node(
         package="rviz2",
         executable="rviz2",
@@ -68,6 +92,8 @@ def generate_launch_description():
             moveit_config.robot_description_semantic,
             moveit_config.robot_description_kinematics,
             moveit_config.planning_pipelines,
+            # moveit_config.joint_limits,
+            robot_description_planning,
         ],
     )
 
@@ -96,6 +122,7 @@ def generate_launch_description():
         "ros2_controllers.yaml",
     )
 
+    #
     ros2_control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
@@ -103,6 +130,7 @@ def generate_launch_description():
         output="screen",
     )
 
+    #
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -113,12 +141,14 @@ def generate_launch_description():
         ],
     )
 
+    #
     akabot_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["akabot_arm_controller", "-c", "/controller_manager"],
     )
 
+    #
     akabot_hand_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
