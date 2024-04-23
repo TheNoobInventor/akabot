@@ -203,7 +203,7 @@
     <child link="left_claw"/>
     <origin rpy="0 0 0.22" xyz="-0.16 0.30 0"/>
     <axis xyz="0 0 1" />
-    <limit effort="1000.0" lower="0" upper="-0.5" velocity="1.0" />
+    <limit effort="1000.0" lower="0.0" upper="0.5" velocity="1.0" />
     <mimic joint="right_claw_joint" multiplier="-1" offset="0" />
   </joint>
 

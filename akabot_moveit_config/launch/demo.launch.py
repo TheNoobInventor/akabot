@@ -23,7 +23,7 @@ def generate_launch_description():
     moveit_config = (
         MoveItConfigsBuilder("akabot")
         .robot_description(
-            file_path="urdf/fake.akabot.urdf.xacro",
+            file_path="urdf/fake_akabot.urdf.xacro",
             mappings={
                 "ros2_control_hardware_type": LaunchConfiguration(
                     "ros2_control_hardware_type"

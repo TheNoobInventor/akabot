@@ -1,7 +1,94 @@
+import os
+
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+
+from launch_ros.actions import Node
+
+from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
-from moveit_configs_utils.launches import generate_moveit_rviz_launch
 
 
 def generate_launch_description():
-    moveit_config = MoveItConfigsBuilder("akabot", package_name="akabot_moveit_config").to_moveit_configs()
-    return generate_moveit_rviz_launch(moveit_config)
+
+    # Launch configuration
+    use_sim_time = LaunchConfiguration("use_sim_time")
+
+    # Declare launch arguments
+    declare_use_sim_time_cmd = DeclareLaunchArgument(
+        name="use_sim_time", default_value="False", description=""
+    )
+
+    # Moveit configuration
+    moveit_config = (
+        MoveItConfigsBuilder("akabot")
+        .robot_description(
+            file_path="urdf/fake.akabot.urdf.xacro",
+            mappings={
+                "ros2_control_hardware_type": LaunchConfiguration(
+                    "ros2_control_hardware_type"
+                )
+            },
+        )
+        .robot_description_semantic(file_path="srdf/akabot.srdf")
+        .robot_description_kinematics(file_path="config/kinematics.yaml")
+        .trajectory_execution(file_path="config/moveit_controllers.yaml")
+        .joint_limits(file_path="config/joint_limits.yaml")
+        .planning_scene_monitor(
+            publish_robot_description=True, publish_robot_description_semantic=True
+        )
+        .planning_pipelines(pipelines=["ompl"])
+        .to_moveit_configs()
+    )
+
+    # Start the actual move_group node/action server
+    move_group_node = Node(
+        package="moveit_ros_move_group",
+        executable="move_group",
+        output="screen",
+        parameters=[moveit_config.to_dict()],
+        arguments=["--ros-args", "--log-level", "info"],
+    )
+
+    # RViz
+    rviz_base = os.path.join(
+        get_package_share_directory("akabot_moveit_config"),
+        "rviz",
+    )
+    rviz_full_config = os.path.join(rviz_base, "moveit.rviz")
+
+    # Rviz node
+    rviz_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        output="log",
+        arguments=["-d", rviz_full_config],
+        parameters=[
+            moveit_config.robot_description,
+            moveit_config.robot_description_semantic,
+            moveit_config.robot_description_kinematics,
+            moveit_config.planning_pipelines,
+            moveit_config.joint_limits,
+        ],
+    )
+
+    # Publish TF
+    robot_state_publisher = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        name="robot_state_publisher",
+        output="both",
+        # arguments=["use_sim_time":use_sim_time],
+        parameters=[moveit_config.robot_description],
+    )
+
+    return LaunchDescription(
+        [
+            declare_use_sim_time_cmd,
+            rviz_node,
+            robot_state_publisher,
+            move_group_node,
+        ]
+    )

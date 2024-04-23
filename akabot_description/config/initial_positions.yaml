@@ -7,3 +7,5 @@ initial_positions:
   top_plate_joint: 3.1200
   upper_arm_joint: 0.0000
   wrist_joint: 0.0000
+  right_claw_joint: 0.0000
+  left_claw_joint: 0.0000
