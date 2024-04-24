@@ -20,11 +20,9 @@ def generate_launch_description():
     pkg_description = FindPackageShare(package="akabot_description").find(
         "akabot_description"
     )
-    # pkg_teleop = FindPackageShare(package="akabot_teleop").find("akabot_teleop")
     pkg_gazebo_ros = FindPackageShare(package="gazebo_ros").find("gazebo_ros")
 
     # gazebo_params_file = os.path.join(pkg_path, "config/gazebo_params.yaml")
-    # twist_mux_params_file = os.path.join(pkg_teleop, "config/twist_mux.yaml")
     world_filename = "simple.world"
     world_path = os.path.join(pkg_path, "worlds", world_filename)
 
@@ -106,21 +104,6 @@ def generate_launch_description():
         ],
     )
 
-    # Start joystick node
-    # start_joystick_cmd = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [os.path.join(pkg_teleop, "launch", "joystick_launch.py")]
-    #     )
-    # )
-
-    # Start twist mux
-    # start_twist_mux_cmd = Node(
-    #     package="twist_mux",
-    #     executable="twist_mux",
-    #     parameters=[twist_mux_params_file, {"use_sim_time": True}],
-    #     remappings=[("/cmd_vel_out", "/diff_controller/cmd_vel_unstamped")],
-    # )
-
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -135,7 +118,5 @@ def generate_launch_description():
     ld.add_action(start_akabot_arm_controller_cmd)
     ld.add_action(start_hand_controller_cmd)
     ld.add_action(start_joint_state_broadcaster_cmd)
-    # ld.add_action(start_joystick_cmd)
-    # ld.add_action(start_twist_mux_cmd)
 
     return ld

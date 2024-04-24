@@ -88,7 +88,6 @@ def generate_launch_description():
         [
             declare_use_sim_time_cmd,
             rviz_node,
-            robot_state_publisher,
             move_group_node,
         ]
     )

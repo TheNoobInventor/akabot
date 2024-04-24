@@ -21,7 +21,6 @@ Akabot, a 6 degree of freedom (DOF) robot arm, is controlled using the ROS2 robo
 - [`akabot_gazebo`](./akabot_gazebo/) : Contains configuration, launch and world files needed to simulate akabot in Gazebo Harmonic.
 - [`akabot_gazebo_classic`](./akabot_gazebo/) : Contains configuration, launch and world files needed to simulate akabot in Gazebo Classic.
 - [`akabot_moveit_config`](./akabot_moveit_config/) : Contains configuration files for MoveIt2.
-- [`akabot_teleop`](./akabot_teleop/) : Contains configuration and launch files used to enable joystick control of the akabot in simulation and physically.
 
 ## Hardware
 ### Part list
