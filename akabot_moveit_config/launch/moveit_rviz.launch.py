@@ -74,16 +74,6 @@ def generate_launch_description():
         ],
     )
 
-    # Publish TF
-    robot_state_publisher = Node(
-        package="robot_state_publisher",
-        executable="robot_state_publisher",
-        name="robot_state_publisher",
-        output="both",
-        # arguments=["use_sim_time":use_sim_time],
-        parameters=[moveit_config.robot_description],
-    )
-
     return LaunchDescription(
         [
             declare_use_sim_time_cmd,
