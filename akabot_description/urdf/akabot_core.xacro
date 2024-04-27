@@ -16,6 +16,7 @@
       <origin xyz="0 0 0.01"/>
         <geometry>
           <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/>
+          <!-- <mesh filename="file://$(find akabot_description)/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/> -->
         </geometry>
         <material name="black">
           <color rgba="0 0 0 1"/>
@@ -25,8 +26,19 @@
       <origin xyz="0 0 0.01"/>
         <geometry>
           <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/>
+          <!-- <mesh filename="file://$(find akabot_description)/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/> -->
         </geometry>
     </collision>
+		<inertial>
+      <mass value="0.540142"/>
+      <inertia
+        ixx="0.0021190000"
+        iyy="0.0006925000"
+        izz="0.0025280000"
+        ixy="-0.0000172100"
+        ixz="0.0000006389"
+        iyz="0.0000461200"/>
+    </inertial>
   </link>
 
   <joint name="top_plate_joint" type="revolute">
@@ -43,6 +55,7 @@
       <origin xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/>
+          <!-- <mesh filename="file://$(find akabot_description)/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/> -->
         </geometry>
         <material name="black"/>
     </visual>
@@ -50,8 +63,19 @@
       <!-- <origin xyz="0 0 0"/> -->
       <geometry>
         <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
-        </collision>
+    </collision>
+		<inertial>
+      <mass value="0.480879"/>
+      <inertia
+        ixx="0.0003790000"
+        iyy="0.0005557000"
+        izz="0.0005889000"
+        ixy="0.0000000022"
+        ixz="-0.0000003561"
+        iyz="0.0000012247"/>
+		</inertial>
   </link>
 
   <joint name="lower_arm_joint" type="revolute">
@@ -68,6 +92,7 @@
       <!-- <origin xyz="0 0 0"/> -->
       <geometry>
         <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="black"/>
     </visual>
@@ -75,8 +100,19 @@
       <origin xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
+		<inertial>
+      <mass value="0.297781"/>
+      <inertia
+        ixx="0.0017100000"
+        iyy="0.0016310000"
+        izz="0.0001482000"
+        ixy="-0.0000011433"
+        ixz="0.0000021161"
+        iyz="0.0002135000"/>
+    </inertial>
   </link>
 
   <joint name="upper_arm_joint" type="revolute">
@@ -93,6 +129,7 @@
       <origin rpy="0 1.59 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="black"/>
     </visual>
@@ -100,8 +137,13 @@
       <origin rpy="0 1.59 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
+		<inertial>
+			<mass value="2e-06"/>
+			<inertia ixx="1.1e-09" ixy="0" ixz="0" iyy="1.1e-09" iyz="0" izz="1.1e-09"/>
+		</inertial>
   </link>
   
   <joint name="wrist_joint" type="revolute">
@@ -118,6 +160,7 @@
       <!-- <origin rpy="0 0 0" xyz="0 0 0"/> -->
       <geometry>
         <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/wrist.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="black"/>
     </visual>
@@ -125,8 +168,19 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/wrist.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
+		<inertial>
+      <mass value="0.283651"/>
+      <inertia
+        ixx="0.0011850000"
+        iyy="0.0000682900"
+        izz="0.0012060000"
+        ixy="-0.0000024317"
+        ixz="0.0000000000"
+        iyz="0.0000000000"/>
+    </inertial>
   </link>
 
   <joint name="claw_base_joint" type="revolute">
@@ -143,6 +197,7 @@
       <origin rpy="0 3.18 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1"/>
@@ -152,8 +207,19 @@
       <origin rpy="0 3.18 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
+		<inertial>
+     <mass value="0.084957"/>
+      <inertia
+        ixx="0.0000308200"
+        iyy="0.0000282200"
+        izz="0.0000315200"
+        ixy="0.0000000191"
+        ixz="0.0000000023"
+        iyz="0.0000025481"/>
+    </inertial>
   </link>
   
   <joint name="right_claw_joint" type="revolute">
@@ -170,6 +236,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="white"/>
     </visual>
@@ -177,8 +244,19 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
+		<inertial>
+      <mass value="0.072885"/>
+      <inertia
+        ixx="0.0000253700"
+        iyy="0.0000183600"
+        izz="0.0000167400"
+        ixy="0.0000000000"
+        ixz="0.0000000000"
+        iyz="0.0000004340"/>
+      </inertial>
   </link>
 
   <!-- Left claw -->
@@ -187,6 +265,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="white"/>
     </visual>
@@ -194,8 +273,19 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/>
+        <!-- <mesh filename="file://$(find akabot_description)/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
+		<inertial>
+      <mass value="0.072885"/>
+      <inertia
+        ixx="0.0000253700"
+        iyy="0.0000183600"
+        izz="0.0000167400"
+        ixy="0.0000000000"
+        ixz="0.0000000000"
+        iyz="0.0000004340"/>
+    </inertial>
   </link>
 
   <joint name="left_claw_joint" type="revolute">

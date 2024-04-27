@@ -1,13 +1,17 @@
-# Launches akabot in Gazebo and can be controlled using a joystick.
+# Launches akabot in Gazebo Classic
 #
 # File adapted from https://automaticaddison.com
 
 import os
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import (
+    DeclareLaunchArgument,
+    IncludeLaunchDescription,
+)
+
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, Command
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -16,41 +20,41 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
 
     # Set the path to different files and folders
-    # pkg_path = FindPackageShare(package="akabot_gazebo").find("akabot_gazebo")
+    pkg_path = FindPackageShare(package="akabot_gazebo_classic").find(
+        "akabot_gazebo_classic"
+    )
     pkg_description = FindPackageShare(package="akabot_description").find(
         "akabot_description"
     )
+    urdf_model_path = os.path.join(pkg_description, "urdf/akabot_gz_classic.urdf.xacro")
     pkg_gazebo_ros = FindPackageShare(package="gazebo_ros").find("gazebo_ros")
+    robot_description_config = Command(
+        [
+            "xacro ",
+            urdf_model_path,
+        ]
+    )
 
     # gazebo_params_file = os.path.join(pkg_path, "config/gazebo_params.yaml")
-    world_filename = "simple.world"
+    world_filename = "empty.world"
     world_path = os.path.join(pkg_path, "worlds", world_filename)
 
     # Launch configuration variables specific to simulation
-    use_sim_time = LaunchConfiguration("use_sim_time")
     world = LaunchConfiguration("world")
 
     # Declare the launch arguments
-    declare_use_sim_time_cmd = DeclareLaunchArgument(
-        name="use_sim_time",
-        default_value="True",
-        description="Use simulation (Gazebo) clock if true",
-    )
-
     declare_world_cmd = DeclareLaunchArgument(
         name="world",
         default_value=world_path,
         description="Full path to the world model to load",
     )
 
-    # Start robot state publisher
-    start_robot_state_publisher_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [os.path.join(pkg_description, "launch", "robot_state_publisher_launch.py")]
-        ),
-        launch_arguments={
-            "use_sim_time": use_sim_time,
-        }.items(),
+    # Start robot state publisher node
+    params = {"robot_description": robot_description_config, "use_sim_time": True}
+    start_robot_state_publisher_cmd = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        parameters=[params],
     )
 
     # Launch Gazebo
@@ -88,7 +92,7 @@ def generate_launch_description():
         package="controller_manager",
         executable="spawner",
         arguments=[
-            "akabot_arm_controller",
+            "hand_controller",
             "--controller-manager",
             "/controller_manager",
         ],
@@ -108,7 +112,6 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     # Declare the launch options
-    ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_world_cmd)
 
     # Add any actions

@@ -76,76 +76,76 @@ The following image shows the components connected for servo calibration - the f
   <img title='Calibration wiring' src=docs/images/calibration_wiring.jpg width="600">
 </p>
 
-Waveshare's [PCA9685 python library](https://www.waveshare.com/wiki/Servo_Driver_HAT#Downlaod_the_example_program_.26_unzip_to_the_specified_directory) is used in calibrating the servos. The `rotate_servo.py` script, located in `akabot_controllers/scripts`, is used to rotate each servo from 0 degrees to 180 degrees, with a 1 second pause when the servo is supposedly at 90 degrees. 
-
-Duck tape is placed on each servo horn to know when to manually adjust the servo horn if the duck tape does not align at 90 degrees as expected. This process is continued until each servo motor is able to move from 0 to 180 degrees with an acceptable tolerance range.
-
-To know how to use the `rotate_servo.py` to calibrate the servos, run `python3 rotate_servo.py -h` in the terminal and this will be outputted:
-
-```
-usage: rotate_servo.py [-h] [-c CHANNEL] [-a]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -c CHANNEL, --channel CHANNEL
-                        choose a servo channel from 1 to 6 for rotation
-  -a, --all             rotate all servos
-```
-
-To rotate an individual servo, servo 1, for instance, the command `python3 rotate_servo.py --channel 1` is executed in the terminal resulting in this output:
-
-```
-Servo 1 is rotating ...
-Pausing rotation at 90 degrees
-Rotation continues ...
-Rotation completed
-```
-
-Considerations are made in the `rotate_servo.py` script for the different servo types, as some adjustments need to be made to obtain similar operations from both types. 
-
-After each servo motor has been calibrated, all servos can be rotated in succession by executing the following command:
-
-`python3 rotate_servo.py --all`:
-
-Which prints this output in the terminal:
-
-```
-Servo 1 is rotating ...
-Pausing rotation at 90 degrees
-Rotation continues ...
-Rotation completed
-
-Servo 2 is rotating ...
-Pausing rotation at 90 degrees
-Rotation continues ...
-Rotation completed
-
-Servo 3 is rotating ...
-Pausing rotation at 90 degrees
-Rotation continues ...
-Rotation completed
-
-Servo 4 is rotating ...
-Pausing rotation at 90 degrees
-Rotation continues ...
-Rotation completed
-
-Servo 5 is rotating ...
-Pausing rotation at 90 degrees
-Rotation continues ...
-Rotation completed
-
-Servo 6 is rotating ...
-Pausing rotation at 90 degrees
-Rotation continues ...
-Rotation completed
-```
-
-An animation of all the servos rotating is shown below. 
-
-<p align='center'>
-    <img src=docs/images/servo_calibration.gif width="600">
-</p>
+<!-- Waveshare's [PCA9685 python library](https://www.waveshare.com/wiki/Servo_Driver_HAT#Downlaod_the_example_program_.26_unzip_to_the_specified_directory) is used in calibrating the servos. The `rotate_servo.py` script, located in `akabot_controllers/scripts`, is used to rotate each servo from 0 degrees to 180 degrees, with a 1 second pause when the servo is supposedly at 90 degrees.  -->
+<!---->
+<!-- Duck tape is placed on each servo horn to know when to manually adjust the servo horn if the duck tape does not align at 90 degrees as expected. This process is continued until each servo motor is able to move from 0 to 180 degrees with an acceptable tolerance range. -->
+<!---->
+<!-- To know how to use the `rotate_servo.py` to calibrate the servos, run `python3 rotate_servo.py -h` in the terminal and this will be outputted: -->
+<!---->
+<!-- ``` -->
+<!-- usage: rotate_servo.py [-h] [-c CHANNEL] [-a] -->
+<!---->
+<!-- optional arguments: -->
+<!--   -h, --help            show this help message and exit -->
+<!--   -c CHANNEL, --channel CHANNEL -->
+<!--                         choose a servo channel from 1 to 6 for rotation -->
+<!--   -a, --all             rotate all servos -->
+<!-- ``` -->
+<!---->
+<!-- To rotate an individual servo, servo 1, for instance, the command `python3 rotate_servo.py --channel 1` is executed in the terminal resulting in this output: -->
+<!---->
+<!-- ``` -->
+<!-- Servo 1 is rotating ... -->
+<!-- Pausing rotation at 90 degrees -->
+<!-- Rotation continues ... -->
+<!-- Rotation completed -->
+<!-- ``` -->
+<!---->
+<!-- Considerations are made in the `rotate_servo.py` script for the different servo types, as some adjustments need to be made to obtain similar operations from both types.  -->
+<!---->
+<!-- After each servo motor has been calibrated, all servos can be rotated in succession by executing the following command: -->
+<!---->
+<!-- `python3 rotate_servo.py --all`: -->
+<!---->
+<!-- Which prints this output in the terminal: -->
+<!---->
+<!-- ``` -->
+<!-- Servo 1 is rotating ... -->
+<!-- Pausing rotation at 90 degrees -->
+<!-- Rotation continues ... -->
+<!-- Rotation completed -->
+<!---->
+<!-- Servo 2 is rotating ... -->
+<!-- Pausing rotation at 90 degrees -->
+<!-- Rotation continues ... -->
+<!-- Rotation completed -->
+<!---->
+<!-- Servo 3 is rotating ... -->
+<!-- Pausing rotation at 90 degrees -->
+<!-- Rotation continues ... -->
+<!-- Rotation completed -->
+<!---->
+<!-- Servo 4 is rotating ... -->
+<!-- Pausing rotation at 90 degrees -->
+<!-- Rotation continues ... -->
+<!-- Rotation completed -->
+<!---->
+<!-- Servo 5 is rotating ... -->
+<!-- Pausing rotation at 90 degrees -->
+<!-- Rotation continues ... -->
+<!-- Rotation completed -->
+<!---->
+<!-- Servo 6 is rotating ... -->
+<!-- Pausing rotation at 90 degrees -->
+<!-- Rotation continues ... -->
+<!-- Rotation completed -->
+<!-- ``` -->
+<!---->
+<!-- An animation of all the servos rotating is shown below.  -->
+<!---->
+<!-- <p align='center'> -->
+<!--     <img src=docs/images/servo_calibration.gif width="600"> -->
+<!-- </p> -->
 
 ### Project Assembly
 

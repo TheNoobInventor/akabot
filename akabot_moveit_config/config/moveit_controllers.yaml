@@ -24,6 +24,7 @@ moveit_simple_controller_manager:
       - claw_base_joint
     action_ns: follow_joint_trajectory
     default: true
+
   hand_controller:
     type: GripperCommand
     joints:
