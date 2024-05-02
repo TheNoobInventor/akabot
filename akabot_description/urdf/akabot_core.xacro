@@ -15,7 +15,8 @@
     <visual>
       <origin xyz="0 0 0.01"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/>
+          <mesh filename="package://akabot_description/meshes/base_cylinder.dae"/>
+          <!-- <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/> -->
           <!-- <mesh filename="file://$(find akabot_description)/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/> -->
         </geometry>
         <material name="black">
@@ -25,7 +26,8 @@
 	  <collision>
       <origin xyz="0 0 0.01"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/>
+          <mesh filename="package://akabot_description/meshes/base_cylinder.dae"/>
+          <!-- <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/> -->
           <!-- <mesh filename="file://$(find akabot_description)/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/> -->
         </geometry>
     </collision>
@@ -54,7 +56,8 @@
 	  <visual>
       <origin xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/>
+          <mesh filename="package://akabot_description/meshes/top_plate.dae"/>
+          <!-- <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/> -->
           <!-- <mesh filename="file://$(find akabot_description)/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/> -->
         </geometry>
         <material name="black"/>
@@ -62,7 +65,8 @@
 	  <collision>
       <!-- <origin xyz="0 0 0"/> -->
       <geometry>
-        <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/top_plate.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
@@ -91,7 +95,8 @@
     <visual>
       <!-- <origin xyz="0 0 0"/> -->
       <geometry>
-        <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/lower_arm.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="black"/>
@@ -99,7 +104,8 @@
     <collision>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/lower_arm.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
@@ -128,7 +134,8 @@
     <visual>
       <origin rpy="0 1.59 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/upper_arm.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="black"/>
@@ -136,7 +143,8 @@
     <collision>
       <origin rpy="0 1.59 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/upper_arm.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
@@ -159,7 +167,8 @@
     <visual>
       <!-- <origin rpy="0 0 0" xyz="0 0 0"/> -->
       <geometry>
-        <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/wrist.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/wrist.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="black"/>
@@ -167,7 +176,8 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/wrist.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/wrist.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
@@ -196,7 +206,8 @@
     <visual>
       <origin rpy="0 3.18 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/claw_base.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="white">
@@ -206,7 +217,8 @@
     <collision>
       <origin rpy="0 3.18 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/claw_base.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
@@ -235,7 +247,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/right_claw.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="white"/>
@@ -243,7 +256,8 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/right_claw.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>
@@ -264,7 +278,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/left_claw.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
       <material name="white"/>
@@ -272,7 +287,8 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/left_claw.dae"/>
+        <!-- <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/> -->
         <!-- <mesh filename="file://$(find akabot_description)/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/> -->
       </geometry>
     </collision>

@@ -1,11 +1,10 @@
 # Default initial positions for akabot's ros2_control system
 
 initial_positions:
-  claw_base_joint: 0.0000
-  lower_arm_joint: 1.5686
-  right_claw_joint: 0.0000
   top_plate_joint: 3.1200
-  upper_arm_joint: 0.0000
-  wrist_joint: 0.0000
+  lower_arm_joint: 0.0000
+  upper_arm_joint: 1.7000
+  wrist_joint: -1.7000
+  claw_base_joint: 0.0000
   right_claw_joint: 0.0000
   left_claw_joint: 0.0000
