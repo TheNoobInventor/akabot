@@ -9,7 +9,7 @@ Akabot, a 6 degree of freedom (DOF) robot arm, is controlled using the ROS2 robo
 <br/>
 
 <p align='center'>
-    <img src=docs/images/rviz_demo.gif width="800">
+    <img src=docs/images/gazebo_moveit_rviz.gif width="800">
 </p>
 
 ***(Work in Progress)***
@@ -205,6 +205,23 @@ cd /home/akabot_ws/src
 <p align="center">
   <img title='Rviz view 1' src=docs/images/rviz_1.png width="400">
   <img title='Rviz view 2' src=docs/images/rviz_2.png width="400">
+</p>
+
+## Gazebo Classic
+
+Launch MoveIt2 and RViz:
+
+```
+ros2 launch akabot_moveit_config moveit_rviz.launch.py use_sim_time:=True
+```
+
+Launch Gazebo Classic:
+```
+ros2 launch akabot_gazebo_classic gazebo_launch.py
+```
+
+<p align='center'>
+    <img src=docs/images/gazebo_moveit_rviz.gif width="800">
 </p>
 
 

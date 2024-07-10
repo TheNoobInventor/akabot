@@ -15,6 +15,7 @@ from launch.substitutions import LaunchConfiguration, Command
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
@@ -49,8 +50,9 @@ def generate_launch_description():
         description="Full path to the world model to load",
     )
 
+    robot_description_str = ParameterValue(robot_description_config, value_type=str)
     # Start robot state publisher node
-    params = {"robot_description": robot_description_config, "use_sim_time": True}
+    params = {"robot_description": robot_description_str, "use_sim_time": True}
     start_robot_state_publisher_cmd = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
@@ -64,7 +66,6 @@ def generate_launch_description():
         ),
         launch_arguments={
             "world": world,
-            # "extra_gazebo_args": "--ros-args --params-file " + gazebo_params_file,
         }.items(),
     )
 

@@ -5,6 +5,7 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
 
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
@@ -20,23 +21,24 @@ def generate_launch_description():
         name="use_sim_time", default_value="False", description=""
     )
 
+    # Set path to URDF model
+    pkg_description = FindPackageShare(package="akabot_description").find(
+        "akabot_description"
+    )
+    urdf_model_path = os.path.join(pkg_description, "urdf/akabot.urdf.xacro")
+
     # Moveit configuration
     moveit_config = (
         MoveItConfigsBuilder("akabot")
         .robot_description(
-            file_path="urdf/fake.akabot.urdf.xacro",
-            mappings={
-                "ros2_control_hardware_type": LaunchConfiguration(
-                    "ros2_control_hardware_type"
-                )
-            },
+            file_path=urdf_model_path,
         )
         .robot_description_semantic(file_path="srdf/akabot.srdf")
         .robot_description_kinematics(file_path="config/kinematics.yaml")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
         .joint_limits(file_path="config/joint_limits.yaml")
         .planning_scene_monitor(
-            publish_robot_description=True, publish_robot_description_semantic=True
+            publish_robot_description_semantic=True,
         )
         .planning_pipelines(pipelines=["ompl"])
         .to_moveit_configs()
