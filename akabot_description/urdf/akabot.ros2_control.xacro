@@ -11,15 +11,6 @@
       <hardware>
         <plugin>${plugin_name}</plugin>
       </hardware>
-      <joint name="right_claw_joint">
-        <command_interface name="position"/>
-          <param name="min">-0.5</param>
-          <param name="max">0.0</param>
-        <state_interface name="position">
-          <param name="initial_value">${initial_positions['right_claw_joint']}</param>
-        </state_interface>
-        <state_interface name="velocity"/>
-      </joint>
       <joint name="top_plate_joint">
         <command_interface name="position"/>
           <param name="min">1.56</param>
