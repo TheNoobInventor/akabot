@@ -3,15 +3,15 @@
 
   <link name="camera_link">
     <visual>
-      <origin xyz="0.4 -0.015 0.135" rpy="${-pi/2} ${pi} ${-pi/2}"/>
+      <origin xyz="0.04 -0.0015 0.0135" rpy="${-pi/2} ${pi} ${-pi/2}"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/d415.dae" scale="10 10 10"/>
+          <mesh filename="package://akabot_description/meshes/d415.dae"/>
         </geometry>
     </visual>
     <collision>
-      <origin xyz="0.4 -0.015 0.135" rpy="${-pi/2} ${pi} ${-pi/2}"/>
+      <origin xyz="0.04 -0.0015 0.0135" rpy="${-pi/2} ${pi} ${-pi/2}"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/d415.dae" scale="10 10 10"/>
+          <mesh filename="package://akabot_description/meshes/d415.dae"/>
         </geometry>
     </collision>
   </link>
@@ -19,7 +19,7 @@
   <joint name="camera_joint" type="fixed">
     <parent link="base_plate"/>
     <child link="camera_link"/>
-    <origin xyz="0.205 0 0.0425" rpy="0 0 0"/> 
+    <origin xyz="0.0205 0 0.00425" rpy="0 0 0"/> 
   </joint>
 
   <link name="camera_link_optical"></link>

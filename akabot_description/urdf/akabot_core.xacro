@@ -24,18 +24,18 @@
   <!-- Base plate -->
   <link name="base_plate">
     <visual>
-      <origin xyz="0 0 0.01"/>
+      <origin xyz="0 0 0.001"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/>
+          <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.00001 0.00001 0.00001"/>
         </geometry>
         <material name="black">
           <color rgba="0 0 0 1"/>
         </material>
     </visual>
 	  <collision>
-      <origin xyz="0 0 0.01"/>
+      <origin xyz="0 0 0.001"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.0001 0.0001 0.0001"/>
+          <mesh filename="package://akabot_description/meshes/base_cylinder.stl" scale ="0.00001 0.00001 0.00001"/>
         </geometry>
     </collision>
 
@@ -47,7 +47,7 @@
   <joint name="top_plate_joint" type="revolute">
     <parent link="base_plate"/>
     <child link="top_plate"/>
-    <origin rpy="0 0 1.5" xyz="0 0 0.48"/>
+    <origin rpy="0 0 1.5" xyz="0 0 0.048"/>
     <axis xyz="0 0 1" />
     <limit effort="1000.0" lower="1.56" upper="4.68" velocity="1.0" />
   </joint>
@@ -57,13 +57,13 @@
 	  <visual>
       <origin xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/>
+          <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.0001 0.0001 0.0001"/>
         </geometry>
         <material name="black"/>
     </visual>
 	  <collision>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/top_plate.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
     </collision>
 
@@ -75,7 +75,7 @@
   <joint name="lower_arm_joint" type="revolute">
     <parent link="top_plate"/>
     <child link="lower_arm"/>
-    <origin xyz="0 0.19 0.28"/>
+    <origin xyz="0 0.019 0.028"/>
     <axis xyz="1 0 0" />
     <limit effort="1000.0" lower="0.0" upper="3.12" velocity="1.0" />
   </joint>
@@ -84,14 +84,14 @@
   <link name="lower_arm">
     <visual>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/lower_arm.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
     </collision>
 
@@ -103,7 +103,7 @@
   <joint name="upper_arm_joint" type="revolute">
     <parent link="lower_arm"/>
     <child link="upper_arm"/>
-    <origin xyz="-0.25 1.0 0"/>
+    <origin xyz="-0.025 0.1 0"/>
     <axis xyz="1 0 0" />
     <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="1.0" />
   </joint>
@@ -113,14 +113,14 @@
     <visual>
       <origin rpy="0 1.59 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin rpy="0 1.59 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/upper_arm.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
     </collision>
 
@@ -132,7 +132,7 @@
   <joint name="wrist_joint" type="revolute">
     <parent link="upper_arm"/>
     <child link="wrist"/>
-    <origin xyz="0.11 1.25 0"/>
+    <origin xyz="0.011 0.125 0"/>
     <axis xyz="1 0 0" />
     <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="1.0" />
   </joint>
@@ -141,14 +141,14 @@
   <link name="wrist">
     <visual>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/wrist.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
     </collision>
 
@@ -162,7 +162,7 @@
     <limit effort="1000.0" lower="-3.17" upper="0.0" velocity="1.0" />
     <parent link="wrist"/>
     <child link="claw_base"/>
-    <origin xyz="0 0.63 0"/>
+    <origin xyz="0 0.063 0"/>
   </joint>
 
   <!-- Claw base -->
@@ -170,7 +170,7 @@
     <visual>
       <origin rpy="0 3.18 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1"/>
@@ -179,7 +179,7 @@
     <collision>
       <origin rpy="0 3.18 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/claw_base.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
     </collision>
 
@@ -191,7 +191,7 @@
   <joint name="right_claw_joint" type="revolute">
     <parent link="claw_base"/>
     <child link="right_claw"/>
-    <origin rpy="0 0 -0.31" xyz="0.11 0.335 0.0155"/>
+    <origin rpy="0 0 -0.31" xyz="0.011 0.0335 0.00155"/>
     <axis xyz="0 0 1" />
     <limit effort="1000.0" lower="-0.5" upper="0.0" velocity="1.0" />
   </joint>
@@ -201,14 +201,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/right_claw.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
     </collision>
 
@@ -222,14 +222,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.001 0.001 0.001"/>
+        <mesh filename="package://akabot_description/meshes/left_claw.stl" scale ="0.0001 0.0001 0.0001"/>
       </geometry>
     </collision>
 
@@ -241,7 +241,7 @@
   <joint name="left_claw_joint" type="revolute">
     <parent link="claw_base"/>
     <child link="left_claw"/>
-    <origin rpy="0 0 0.22" xyz="-0.16 0.30 0"/>
+    <origin rpy="0 0 0.22" xyz="-0.016 0.030 0"/>
     <axis xyz="0 0 1" />
     <limit effort="1000.0" lower="0.0" upper="0.5" velocity="1.0" />
     <mimic joint="right_claw_joint" multiplier="-1" offset="0" />
