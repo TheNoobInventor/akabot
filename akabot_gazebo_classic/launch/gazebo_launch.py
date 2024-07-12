@@ -36,8 +36,7 @@ def generate_launch_description():
         ]
     )
 
-    # gazebo_params_file = os.path.join(pkg_path, "config/gazebo_params.yaml")
-    world_filename = "empty.world"
+    world_filename = "pick_and_place.world"
     world_path = os.path.join(pkg_path, "worlds", world_filename)
 
     # Launch configuration variables specific to simulation
@@ -74,7 +73,20 @@ def generate_launch_description():
         package="gazebo_ros",
         executable="spawn_entity.py",
         output="screen",
-        arguments=["-topic", "robot_description", "-entity", "akabot"],
+        arguments=[
+            "-topic",
+            "robot_description",
+            "-entity",
+            "akabot",
+            "-x",
+            "-0.155216",
+            "-y",
+            "-0.056971",
+            "-z",
+            "1.010770",
+            "-Y",
+            "0.016798",
+        ],
     )
 
     # Spawn akabot_arm_controller

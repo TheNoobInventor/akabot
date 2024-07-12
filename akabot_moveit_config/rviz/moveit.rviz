@@ -126,6 +126,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           wrist:
             Alpha: 1
             Show Axes: false
@@ -225,6 +229,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           wrist:
             Alpha: 1
             Show Axes: false
@@ -281,25 +289,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 14.02255916595459
+      Distance: 2.2750244140625
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -3.104344606399536
-        Y: 2.0015642642974854
-        Z: 0.23312391340732574
+        X: -0.6128320097923279
+        Y: -0.48245328664779663
+        Z: -0.7856349945068359
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4853983223438263
+      Pitch: 0.6903982758522034
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.6003853678703308
+      Yaw: 0.6403853297233582
     Saved: ~
 Window Geometry:
   Displays:
