@@ -52,11 +52,6 @@
     <limit effort="1000.0" lower="1.56" upper="4.68" velocity="1.0" />
   </joint>
 
-  <gazebo reference="base_plate">
-    <mu1 value="1.16"/>
-    <mu2 value="1.16"/>
-  </gazebo>
-
   <!-- Top plate -->
   <link name="top_plate">
 	  <visual>
